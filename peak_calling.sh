@@ -5,22 +5,17 @@
 sampleID="X"
 out_dir="/dir/sampleID/"
 tmpdir="/path/tmpdir/tmp"
-picard_prog_path="/path/picard-tools-1.98/"
-file_prefix="${out_dir}${sampleID}.merged"
-input_bam=${file_prefix}_genome.sorted.bam 
-
+input_bam=${out_dir}${sampleID}_genome.sorted.bam 
+out_bam=${out_dir}${sampleID}_genome.sorted.offset.bam
 
 ## 1. Offset positions
 ## + strand: + 4 bp
 ## - strand: - 5 bp
 ## Use Qu et al's script
-## input: sam file
-## output: sam file
-outfile=${file_prefix}_genome.sorted.offset
-samtools view -h ${input_bam} | perl ./shift_sam_bases_JL.pl | samtools view -bhS - > ${outfile}.bam
+samtools view -h ${input_bam} | perl ./shift_sam_bases_JL.pl | samtools view -bhS - > ${out_bam}
 
 ## 2. Peak Calling (by MACS2) :: Parameters set as in Denny et al
 echo "3. Peak Calling by MACS2"
-bam_in=${outfile}.bam
-macs2 callpeak --nomodel --broad --keep-dup all -g mm -f BAM -t ${bam_in} -n ${sample_alias}.merged_genome.broad.macs2 --outdir ${out_dir}
+bam_in=${out_bam}
+macs2 callpeak --nomodel --broad --keep-dup all -g mm -f BAM -t ${bam_in} -n ${sampleID}.merged_genome.broad.macs2 --outdir ${out_dir}
 
