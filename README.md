@@ -8,6 +8,7 @@ Analysis scripts for ATAC-seq data
     - Trimmomatics v0.32
     - Picard v1.88
     - Bowtie2
+    - samtools
 
     NOTE: Software path needs to be set within the scripts.  
     NOTE: FASTQ files need to be gzipped in advance  
