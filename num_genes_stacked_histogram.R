@@ -3,7 +3,7 @@
 ## Plot stacked histogram of TSS-accessible genes
 ## Color assigned by study group
 
-sampleFile <- "./uploaded/SRA_sample_info.color_20170913.txt"
+sampleFile <- "./SRA_sample_info.color_20170913.txt"
 TSS_File <- "./Num_TSS_accessible_genes.txt"
 
 sampleTab <- read.table(sampleFile, header=T, as.is=T, sep="\t")
