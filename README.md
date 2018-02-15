@@ -17,7 +17,7 @@ Analysis scripts for ATAC-seq data
 
   Output: ${file_prefix}.MQ30.genome.sorted.bam, ${file_prefix}.MQ30.chrM.sorted.bam  
 
-2. **peak_calling.sh**
+2. **peak_calling.sh**  
   Offset read start and end positions and call peaks by MACS2.  
   NOTE: Technical replicates were merged before running this script  
 
@@ -25,13 +25,13 @@ Analysis scripts for ATAC-seq data
   - samtools
   - MACS2
   
-  input: merged bam file
+  input: merged bam file  
   output: adjusted ("+"strand +4bp, "-" strand -5bp) bam file, MACS2 broad peaks  
   
 3. **peak_depth.sh**  
   Compute the sum of depth per peak
   
-  Sortware Requirements
+  Software Requirements
   - samtools
   
   
