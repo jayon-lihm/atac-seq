@@ -1,5 +1,6 @@
 ## 2018.02.08
 ## ATAC-seq FASTQ processing pipeline for single-end reads
+## "./pipeline_single.sh ${file_prefix}" will process ${file_prefix}.fastq.gz.  
 
 file_prefix=$1
 
