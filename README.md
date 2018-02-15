@@ -11,10 +11,6 @@ Analysis scripts for ATAC-seq data
 
   NOTE: Sortware path needs to be set within the scripts.  
   NOTE: FASTQ files need to be gzipped in advance  
-
-  - "./pipeline_paired.sh ${file_prefix}" will process ${file_prefix}_1.fastq.gz & ${file_prefix}_2.fastq.gz.  
-  - "./pipeline_single.sh ${file_prefix}" will process ${file_prefix}.fastq.gz.  
-
   Output: ${file_prefix}.MQ30.genome.sorted.bam, ${file_prefix}.MQ30.chrM.sorted.bam  
 
 2. **peak_calling.sh**  
