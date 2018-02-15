@@ -8,7 +8,7 @@ Analysis scripts for ATAC-seq data
     - Trimmomatics v0.32
     - Picard v1.88
     - Bowtie2
-    - samtools
+    - Samtools
 
     NOTE: Software path needs to be set within the scripts.  
     NOTE: FASTQ files need to be gzipped in advance  
@@ -18,14 +18,23 @@ Analysis scripts for ATAC-seq data
   Input: merged bam file (NOTE: Technical replicates were merged before running this script)  
   Output: adjusted ("+"strand +4bp, "-" strand -5bp) bam file, MACS2 broad peaks  
   \[Software Requirements\]
-    - samtools
+    - Samtools
     - MACS2
   
 3. **peak_depth.sh**  
   Compute the sum of depth per peak  
   \[Software Requirements\]
-    - samtools
-    - bedtools
-    - python
-  
-  
+    - Samtools
+    - Bedtools
+    - Python
+ 4. **count_TSS_accessible_genes.R**  
+    Generate three tables:  
+    1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions),  
+    2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0,  
+    3) Binary table for each gene, row: gene, column: samples
+    \[Software Requirements\]
+      - Bedtools
+      
+      NOTE: "Merged_mm9_refSeq_TSS_1kb.txt" is a table of TSS regions. Overlapping TSS regions were merged within the same gene.  
+      NOTE: "SRA_sample_info.color_20170913.txt" is a table of 193 sample information used in the meta analysis.  
+      
