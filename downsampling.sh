@@ -2,7 +2,9 @@
 ## Downsampling to 10%, 20%, ... 90% (with replacement)
 ## 10 replicates at each sampling
 bamfile="/path/X.bam"
-out_prefix= "/dir/sampleID"
+out_prefix= "/dir/sampleID" ## for sampled reads
+out_dir="./" ## MACS2 peaks output directory
+
 
 echo "START: $(date +"%D"), $(date +"%T")"
 for j in {1..9} ## fraction 10%~90%
