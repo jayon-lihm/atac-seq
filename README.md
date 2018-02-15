@@ -19,7 +19,7 @@ Analysis scripts for ATAC-seq data
 
 2. peak_calling.sh
   Offset read start and end positions and call peaks by MACS2.  
-  NOTE: Technical replicates were merged before running this script
+  NOTE: Technical replicates were merged before running this script  
   Software requirements
   - samtools
   - MACS2
