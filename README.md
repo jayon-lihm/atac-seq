@@ -24,5 +24,7 @@ Analysis scripts for ATAC-seq data
   Compute the sum of depth per peak  
   \[Software Requirements\]
     - samtools
+    - bedtools
+    - python
   
   
