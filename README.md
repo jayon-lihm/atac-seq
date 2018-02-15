@@ -31,7 +31,7 @@ Analysis scripts for ATAC-seq data
     Generate three tables:  
     1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions),  
     2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0,  
-    3) Binary table for each gene, row: gene, column: samples
+    3) Binary table for each gene, row: gene, column: samples  
     \[Software Requirements\]
       - Bedtools
       
