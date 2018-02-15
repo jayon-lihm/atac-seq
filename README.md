@@ -6,7 +6,7 @@ Software Requirements
 - Picard v1.88
 - Bowtie2
 
-1. pipeline_paired.sh & pipeline_single.sh
+1. pipeline_paired.sh & pipeline_single.sh  
 Trim adapters, mapping, remove duplicates, generate .bam and .bai for genome (chr1-19,X,Y) and chrM.  
 Sortware path needs to be set within the scripts.  
 NOTE: FASTQ files need to be gzipped in advance  
