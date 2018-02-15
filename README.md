@@ -44,3 +44,13 @@ Analysis scripts for ATAC-seq data
     Input: "SRA_sample_info.color_20170913.txt" for sample information and color codes and "Num_TSS_accessible_genes.txt" for the number of TSS-accessible genes  
     Output: Number_of_Genes_Distribution_histogram.pdf  
     
+  6. **downsampling.sh**  
+    Downsampling reads to 10%, 20%, ..., 90%, generating ten replicates are generated at each sampling fraciton.  
+    Peaks are called right after the sampling and the sampled bam files are removed.  
+    Output: ${sample_alias}.f${frac}\_r${i}.broad.macs2 where sample_alias is sample ID, frac is sampling fraction, i is a replicate number.  
+    \[Software Requirements\]
+      - MACS2
+      - Samtools  
+      
+      NOTE: Input bam file and output prefix needs to be set within the script.  
+    
