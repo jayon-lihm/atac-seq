@@ -32,10 +32,10 @@ Analysis scripts for ATAC-seq data
     1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions),  
     2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0,  
     3) Binary table for each gene, row: gene, column: samples  
-    
-  \[Software Requirements\]
-    - Bedtools
+  
+    \[Software Requirements\]  
+      - Bedtools
       
-  NOTE: "Merged_mm9_refSeq_TSS_1kb.txt" is a table of TSS regions. Overlapping TSS regions were merged within the same gene.  
-  NOTE: "SRA_sample_info.color_20170913.txt" is a table of 193 sample information used in the meta analysis.  
+    NOTE: "Merged_mm9_refSeq_TSS_1kb.txt" is a table of TSS regions. Overlapping TSS regions were merged within the same gene.  
+    NOTE: "SRA_sample_info.color_20170913.txt" is a table of 193 sample information used in the meta analysis.  
       
