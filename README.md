@@ -54,7 +54,7 @@ Analysis scripts for ATAC-seq data
       
       NOTE: Input bam file and output prefix needs to be set within the script.  
    
-   7. **Novel_Lost_Peak_Counts.R**
+   7. **Novel_Lost_Peak_Counts.R**  
       Calculate % of novel and lost peaks. Novel peak is a newly appeared peak after sampling and lost peak is a disappeared peak after sampling. Peaks from the original bam file before sampling are called "original peaks". This script runs for each fraction for parallelization.       
       Percentage of novel peaks: (# novel peaks) / (Total # peaks after sampling)  
       Percentage of lost peaks: (# lost peaks) / (Total # peaks before sampling)  
