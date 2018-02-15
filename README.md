@@ -1,7 +1,7 @@
 # atac-seq
 Analysis scripts for ATAC-seq data
 
-1. pipeline_paired.sh & pipeline_single.sh  
+1. **pipeline_paired.sh & pipeline_single.sh**  
   Trim adapters, mapping, remove duplicates, generate .bam and .bai for genome (chr1-19,X,Y) and chrM.  
 
   Software Requirements
@@ -12,12 +12,12 @@ Analysis scripts for ATAC-seq data
   NOTE: Sortware path needs to be set within the scripts.  
   NOTE: FASTQ files need to be gzipped in advance  
 
-  a) "./pipeline_paired.sh ${file_prefix}" will process ${file_prefix}_1.fastq.gz & ${file_prefix}_2.fastq.gz.  
-  b) "./pipeline_single.sh ${file_prefix}" will process ${file_prefix}.fastq.gz.  
+  - "./pipeline_paired.sh ${file_prefix}" will process ${file_prefix}_1.fastq.gz & ${file_prefix}_2.fastq.gz.  
+  - "./pipeline_single.sh ${file_prefix}" will process ${file_prefix}.fastq.gz.  
 
   Output: ${file_prefix}.MQ30.genome.sorted.bam, ${file_prefix}.MQ30.chrM.sorted.bam  
 
-2. peak_calling.sh
+2. **peak_calling.sh**
   Offset read start and end positions and call peaks by MACS2.  
   NOTE: Technical replicates were merged before running this script  
 
@@ -27,4 +27,11 @@ Analysis scripts for ATAC-seq data
   
   input: merged bam file
   output: adjusted ("+"strand +4bp, "-" strand -5bp) bam file, MACS2 broad peaks  
+  
+3. **peak_depth.sh**  
+  Compute the sum of depth per peak
+  
+  Sortware Requirements
+  - samtools
+  
   
