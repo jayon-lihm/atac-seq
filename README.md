@@ -25,3 +25,6 @@ Analysis scripts for ATAC-seq data
   - samtools
   - MACS2
   
+  input: merged bam file
+  output: adjusted ("+"strand +4bp, "-" strand -5bp) bam file, MACS2 broad peaks  
+  
