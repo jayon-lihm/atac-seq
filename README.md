@@ -8,6 +8,7 @@ Software Requirements
 
 1. pipeline_paired.sh & pipeline_single.sh
 Trim adapters, mapping, remove duplicates, generate .bam and .bai for genome (chr1-19,X,Y) and chrM.  
+Sortware path needs to be set within the scripts.  
 NOTE: FASTQ files need to be gzipped in advance  
 
 a) "./pipeline_paired.sh ${file_prefix}" will process ${file_prefix}_1.fastq.gz & ${file_prefix}_2.fastq.gz.  
