@@ -15,14 +15,14 @@ Analysis scripts for ATAC-seq data
 
 2. **peak_calling.sh**  
   Offset read start and end positions and call peaks by MACS2.  
+  Input: merged bam file
+  Output: adjusted ("+"strand +4bp, "-" strand -5bp) bam file, MACS2 broad peaks
+  
   NOTE: Technical replicates were merged before running this script  
 
   Software Requirements
   - samtools
   - MACS2
-  
-  input: merged bam file  
-  output: adjusted ("+"strand +4bp, "-" strand -5bp) bam file, MACS2 broad peaks  
   
 3. **peak_depth.sh**  
   Compute the sum of depth per peak
