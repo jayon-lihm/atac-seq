@@ -29,9 +29,9 @@ Analysis scripts for ATAC-seq data
     - Python
  4. **count_TSS_accessible_genes.R**  
   Generate three tables:  
-    1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions),  
-    2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0,  
-    3) Binary table for each gene, row: gene, column: samples  
+    1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions) - output: Num_TSS_accessible_genes.txt,  
+    2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0 - output: TSS_numSamples.txt,  
+    3) Binary table for each gene, row: gene, column: samples - output: Gene_numSamples.txt   
   
     \[Software Requirements\]  
       - Bedtools
