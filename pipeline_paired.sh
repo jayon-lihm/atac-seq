@@ -1,5 +1,6 @@
 ## 2018.02.08
 ## ATAC-seq FASTQ processing pipeline for paired-end reads
+## "./pipeline_paired.sh ${file_prefix}" will process ${file_prefix}_1.fastq.gz & ${file_prefix}_2.fastq.gz.
 
 file_prefix=$1
 
