@@ -78,7 +78,7 @@ Analysis scripts for ATAC-seq data
       
       Input files:  
         - ./Merged_mm9_refSeq_TSS_1kb.txt
-        - ./mm9_genename.txt: unique list of gene names and its chromosomal locations
+        - ./mm9_genename.txt: unique list of gene names and its chromosomal locations  
         - ./TSS_numSamples.txt.gz: Table with the list of TSS and all 193 samples for whether a sample has peaks or not. Generated from #3.    
         
       
