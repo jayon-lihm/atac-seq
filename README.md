@@ -85,4 +85,7 @@ Analysis scripts for ATAC-seq data
         - outfile_tss <- paste("./", sample_alias, ".TSS_calls_frac1090.byTSS.txt", sep="")
         - outfile_gene <- paste("./", sample_alias, ".TSS_calls_frac1090.byGene.txt", sep="")
         
-      
+   9. **Novel_Lost_Genes_Counts_frac90.R**  
+      Used for Figure 3(C). Generate the counts of novel and lost genes at 90% sampling for all 193 samples and all 10 replicates.   
+      Input file: output from #8. "./sample_alias.TSS_calls_frac1090.byGene.txt"  
+      Output file: ./Number_novel_lost_genes_90pct.txt  
