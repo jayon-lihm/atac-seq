@@ -89,3 +89,17 @@ Analysis scripts for ATAC-seq data
       Used for Figure 3(B&C). Generate the counts of novel and lost genes at 90% sampling for all 193 samples and all 10 replicates.   
       Input file: output from #8. "./sample_alias.TSS_calls_frac1090.byGene.txt"  
       Output file: ./Number_novel_lost_genes_90pct.txt  
+
+   10. **Gene_Frequency_Distribution.R**  
+      Used for Figure 4(A). Generate a reverse cumulative distribution P(X>=x) graph.  
+      NOTE: Peak file needs to be specified within the script.  
+      Input files:  
+        - SRA_sample_info.color_20170913.txt
+        - Merged_mm9_refSeq_TSS.txt, Merged_mm9_refSeq_TSS_1kb.txt, Merged_mm9_refSeq_Gene_1kb.txt, mm9_genename.txt  
+        
+      Output files:  
+        - RevCumulative_Histogram_gene_TSS_peaks.pdf: Reverse cumulative distribution graph
+        - peaks_overlap_with_Genes_perGeneSummary.txt: List of genes with frequency of samples at TSS, TSS1kb, Gene1kb
+        - CommonGenes_451.txt: List of commonly accessible genes (TSS+/- 1kb regions)
+      
+      
