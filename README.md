@@ -81,4 +81,8 @@ Analysis scripts for ATAC-seq data
         - ./mm9_genename.txt: unique list of gene names and its chromosomal locations
         - ./TSS_numSamples.txt.gz: Table with the list of TSS and all 193 samples for whether a sample has peaks or not. Generated from #3.
         
+      Output files:
+        - outfile_tss <- paste("./", sample_alias, ".TSS_calls_frac1090.byTSS.txt", sep="")
+        - outfile_gene <- paste("./", sample_alias, ".TSS_calls_frac1090.byGene.txt", sep="")
+        
       
