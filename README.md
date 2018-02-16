@@ -55,7 +55,7 @@ Analysis scripts for ATAC-seq data
       NOTE: Input bam file and output prefix needs to be set within the script.  
    
    7. **Novel_Lost_Peak_Counts.R**  
-      Used for Figure 3(B). Calculate % of novel and lost peaks. Novel peak is a newly appeared peak after sampling and lost peak is a disappeared peak after sampling. Peaks from the original bam file before sampling are called "original peaks". This script runs for each fraction for parallelization.       
+      Used for Figure 3(A). Calculate % of novel and lost peaks. Novel peak is a newly appeared peak after sampling and lost peak is a disappeared peak after sampling. Peaks from the original bam file before sampling are called "original peaks". This script runs for each fraction for parallelization.       
       Percentage of novel peaks: (# novel peaks) / (Total # peaks after sampling)  
       Percentage of lost peaks: (# lost peaks) / (Total # peaks before sampling)  
       Output: Sampling_f\<frac\>\_withRep_NumPeaks_AllReps.txt - a table with sample ID, study name, sampling fraction, replicate number, original number of peaks, number of peaks at this sampling, number of novel peaks, number of lost peaks.  
@@ -68,7 +68,7 @@ Analysis scripts for ATAC-seq data
         - Bedtools
         
    8. **Summary_Gene_withPeaks_frac1090.R**  
-      Used for Figure 3(C). Generate table per sample with TSS/Gene info + original + f10_r1 + ... + f10_r10 + f90_r1 + f90_r10.  
+      Used for Figure 3(B&C). Generate table per sample with TSS/Gene info + original + f10_r1 + ... + f10_r10 + f90_r1 + f90_r10.  
       1 if the TSS or gene has overlapping peaks, 0 otherwise.  
       It takes the index number of sample in the sample info table and temporary output directory ("tmpdir") as arguments.  
       ```
@@ -86,6 +86,6 @@ Analysis scripts for ATAC-seq data
         - outfile_gene <- paste("./", sample_alias, ".TSS_calls_frac1090.byGene.txt", sep="")
         
    9. **Novel_Lost_Genes_Counts_frac90.R**  
-      Used for Figure 3(C). Generate the counts of novel and lost genes at 90% sampling for all 193 samples and all 10 replicates.   
+      Used for Figure 3(B&C). Generate the counts of novel and lost genes at 90% sampling for all 193 samples and all 10 replicates.   
       Input file: output from #8. "./sample_alias.TSS_calls_frac1090.byGene.txt"  
       Output file: ./Number_novel_lost_genes_90pct.txt  
