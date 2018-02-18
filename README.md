@@ -42,8 +42,11 @@ All of the input and output files (tables, graphs, texts) are located under "fil
   
   5. **num_genes_stacked_histogram.R**  
     Generates Figure 2(C); Stacked histogram of number of TSS-accessible genes. Color represents each study.  
-    Input: "SRA_sample_info.color_20170913.txt" for sample information and color codes and "Num_TSS_accessible_genes.txt" for the number of TSS-accessible genes  
-    Output: Number_of_Genes_Distribution_histogram.pdf  
+    Input files:
+      - SRA_sample_info.color_20170913.txt: sample information and color codes
+      - Num_TSS_accessible_genes.txt: the number of TSS-accessible genes  
+      
+    Output file: Number_of_Genes_Distribution_histogram.pdf  
     
   6. **downsampling.sh**  
     Downsampling reads to 10%, 20%, ..., 90%, generating ten replicates are generated at each sampling fraciton.  
