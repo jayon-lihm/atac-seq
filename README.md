@@ -1,5 +1,6 @@
 # atac-seq
-Analysis scripts for ATAC-seq data
+Analysis scripts for ATAC-seq data.  
+All of the input and output files (tables, graphs, texts) are located it under "files" folder.  
 
 1. **pipeline_paired.sh & pipeline_single.sh**  
   Trim adapters, mapping, remove duplicates, generate .bam and .bai for genome (chr1-19,X,Y) and chrM.  
