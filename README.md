@@ -1,6 +1,19 @@
 # atac-seq
-Analysis scripts for ATAC-seq data.  
-All of the input and output files (tables, graphs, texts) are located under "files" folder.  
+Analysis scripts for paper "How low can you go? Calling robust ATAC-seq peaks through read down-sampling"   
+
+Authors:  Jayon Lihm1, Sandra Ahrens1, Sara Ballouz1, Hayan Lee2,3, Megan Crow1, Jessica Tollkuhn1, Shane McCarthy1, Bo Li1, W.R. McCombie1, Jesse Gillis1* (corresponding author)
+
+Affiliations:  
+1 The Stanley Institute for Cognitive Genomics, Cold Spring Harbor Laboratory, Cold Spring Harbor, NY, 11724, USA 
+2 Department of Energy Joint Genome Institute, Walnut Creek, CA 94598, USA
+3 Department of Genetics, Stanford University School of Medicine, Stanford University, Stanford, CA 94304, USA
+
+For questions, please contact Jayon Lihm (jlihm@cshl.edu) or Jesse Gillis (JGillis@cshl.edu).  
+
+===============================================================================
+
+All of the input and output files (tables, graphs, texts) are located under "files" folder. 
+List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studies_in_meta_analysis.txt".  
 
 1. **pipeline_paired.sh & pipeline_single.sh**  
   Trim adapters, mapping, remove duplicates, generate .bam and .bai for genome (chr1-19,X,Y) and chrM.  
