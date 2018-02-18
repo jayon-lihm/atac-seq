@@ -116,4 +116,9 @@ All of the input and output files (tables, graphs, texts) are located it under "
         - CommonAccessibleGenes_451_RankedGeneExpression.txt
         - All_and_CommonGenes_mean_expression_vs_sd.png
         - MannWhitney_rankTest_CommonGenes_GO_enrichment.txt
-      
+   
+   12. **non_overlapping_10pct_sampling.sh**
+      Used for our mouse amygdala and cortex samples processing. This script will generate non-overlapping 10 splits of the input bam files, followed by MACS2 peak calling. The paths to bamfile, sampleID, tmp dir, and output dir need to be specified within the script. After the peak calling, the bam files for the sampled reads will be removed to save space.  
+      \[Software Requirements\]  
+        - MACS2
+        - Samtools
