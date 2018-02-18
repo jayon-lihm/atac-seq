@@ -122,3 +122,20 @@ All of the input and output files (tables, graphs, texts) are located it under "
       \[Software Requirements\]  
         - MACS2
         - Samtools
+
+   13. **MouseBrain_HypergeometricTests.R**  
+      Perform hypergeometric tests for selected genes based on frequency. Compare fear-conditioning vs control, ErbB4 knock-out vs wildtype, and amygdala vs cortex.  
+      Input table is prepared by "Summary_Gene_withPeaks_frac1090.R". Here, frac10 represents non-overlapping 10% sampling. For genes that are called in 9 or more replicates are marked 1, and 0 otherwise. (==> MouseBrain_frac10_ALL.TSS_1kb_genes.txt.gz)  
+      After hypergeometric test, GO enrichment analysis for 22 genes preferentially called in cortex region is done. No significant results.
+      
+      Input files:
+        - MouseBrain_SampleInfo.txt: Sample info
+        - Merged_mm9_refSeq_TSS_1kb.txt
+        - MouseBrain_frac10_ALL.TSS_1kb_genes.txt.gz
+        - EGAD sources (https://www.bioconductor.org/packages/release/bioc/html/EGAD.html): EGADlite.RData, biogrid.RData, GO.mouse.RData, GO.voc.RData, gene_set_enrichment.r
+        - hyp.geo.test.R: To call customed hypergeometric function
+        
+      Output files:
+        - hyp_geo_test.TISSUE.txt: Example of test results
+        - MouseBrain_numGenes_distributions_numSamples16.pdf: Barplot of number of samples per gene counts
+  
