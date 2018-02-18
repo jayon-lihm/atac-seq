@@ -101,5 +101,18 @@ Analysis scripts for ATAC-seq data
         - RevCumulative_Histogram_gene_TSS_peaks.pdf: Reverse cumulative distribution graph
         - peaks_overlap_with_Genes_perGeneSummary.txt: List of genes with frequency of samples at TSS, TSS1kb, Gene1kb
         - CommonGenes_451.txt: List of commonly accessible genes (TSS+/- 1kb regions)
-      
+   11. **common_genes_analysis.R**  
+      Used for Figure 4(B). Generates a png graph plotting the rank of mean expression vs. the ranked SD, a list of 451 commonly accessible genes, and the results of GO enrichment analysis based on MannWhitney test.  
+      GO enrichment analysis: In this script, we perform Mann Whitney test for broader trend and Hypergeometric test for enrichment.  
+      Input files:
+        - SRA_sample_info.color_20170913.txt
+        - Merged_mm9_refSeq_TSS_1kb.txt
+        - Gene_numSamples.txt.gz
+        - mouse.ranked_mean_sd_expression.txt.gz: Mouse expression data
+        - EGAD sources (https://www.bioconductor.org/packages/release/bioc/html/EGAD.html): EGADlite.RData, biogrid.RData, GO.mouse.RData, GO.voc.RData, gene_set_enrichment.r  
+       
+      Output files:
+        - CommonAccessibleGenes_451_RankedGeneExpression.txt
+        - All_and_CommonGenes_mean_expression_vs_sd.png
+        - MannWhitney_rankTest_CommonGenes_GO_enrichment.txt
       
