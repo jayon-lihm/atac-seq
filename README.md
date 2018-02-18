@@ -142,3 +142,17 @@ All of the input and output files (tables, graphs, texts) are located under "fil
         - hyp_geo_test.TISSUE.txt: Example of test results
         - MouseBrain_numGenes_distributions_numSamples16.pdf: Barplot of number of samples per gene counts
   
+   14. **Plot_normalized_signals_22genes.R**  
+      For Figure 5(C,D). Plot normalized read counts per condition, plot normalized signal centered at TSS.  
+      
+      Input files:
+        - MouseBrain_SampleInfo.txt: Sample info 
+        - MouseBrain_Read_Counts_TSS1kb.txt.gz: Number of reads within TSS-region for all genes, all samples
+        - Depth of TSS-regions needs to be calculated in advance per sample, the path to the depth file needs to be specified within the script.
+        - Normalized_signals_sig22genes.txt: Pre-calculated normalized depth
+      
+      Ouput files:
+        - Normalized_read_counts.22genes.pdf: A graph for normalized read counts for amygdala and cortex of the 22 genes, Figure 5(C)
+        - Normalized signals for random 22 genes per replicate (10 replicates): as in table and graph
+        - Difference_normalized_signals_22genes_wRand10reps_wSDbar.pdf: Figure 5(D)
+
