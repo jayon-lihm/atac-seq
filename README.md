@@ -139,33 +139,18 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
         - MACS2
         - Samtools
 
-   13. **MouseBrain_HypergeometricTests.R**  
-      Perform hypergeometric tests for selected genes based on frequency. Compare fear-conditioning vs control, ErbB4 knock-out vs wildtype, and amygdala vs cortex.  
-      Input table is prepared by "Summary_Gene_withPeaks_frac1090.R". Here, frac10 represents non-overlapping 10% sampling. For genes that are called in 9 or more replicates are marked 1, and 0 otherwise. (==> MouseBrain_frac10_ALL.TSS_1kb_genes.txt.gz)  
-      After hypergeometric test, GO enrichment analysis for 22 genes preferentially called in cortex region is done. No significant results.
+   13. **MouseBrain_DiffAcc_ttest.R**  
+      Perform Student t-tests for selected genes that are called robustly at least in one sample. Compare fear-conditioning vs control, ErbB4 knock-out vs wildtype, and amygdala vs cortex.  
+      Output Figures include Figure 5C, 5D, and Figure S7.  
       
       Input files:
         - MouseBrain_SampleInfo.txt: Sample info
         - Merged_mm9_refSeq_TSS_1kb.txt
-        - MouseBrain_frac10_ALL.TSS_1kb_genes.txt.gz
-        - EGAD sources (https://www.bioconductor.org/packages/release/bioc/html/EGAD.html): EGADlite.RData, biogrid.RData, GO.mouse.RData, GO.voc.RData, gene_set_enrichment.r
-        - hyp.geo.test.R: To call customed hypergeometric function
+        - mm9_genename.txt
+        - Peak calling results: MouseBrain_Broad_Original_TSS_Hits.txt, MouseBrain_Broad_f10_TSS_Hits.txt, MouseBrain_Narrow_Original_TSS_Hits.txt, MouseBrain_Narrow_f10_TSS_Hits.txt
+        - TSS ATAC-seq signal: MouseBrain_TSS_1k.depth_summary.txt.gz
         
       Output files:
-        - hyp_geo_test.TISSUE.txt: Example of test results
-        - MouseBrain_numGenes_distributions_numSamples16.pdf: Barplot of number of samples per gene counts
+        - T-test results: MouseBrain_DA_Test_DefBroad_original.txt, MouseBrain_DA_Test_DefBroad_f10.txt, MouseBrain_DA_Test_DefNarrow_original.txt, MouseBrain_DA_Test_DefNarrow_f10.txt
+        - Figures: MouseBrain_nzd_reads_amyg_vs_cortex.pdf, MouseBrain_nzd_reads_vs_pvalues.pdf
   
-   14. **Plot_normalized_signals_22genes.R**  
-      For Figure 5(C,D). Plot normalized read counts per condition, plot normalized signal centered at TSS.  
-      
-      Input files:
-        - MouseBrain_SampleInfo.txt: Sample info 
-        - MouseBrain_Read_Counts_TSS1kb.txt.gz: Number of reads within TSS-region for all genes, all samples
-        - Depth of TSS-regions needs to be calculated in advance per sample, the path to the depth file needs to be specified within the script.
-        - Normalized_signals_sig22genes.txt: Pre-calculated normalized depth
-      
-      Ouput files:
-        - Normalized_read_counts.22genes.pdf: A graph for normalized read counts for amygdala and cortex of the 22 genes, Figure 5(C)
-        - Normalized signals for random 22 genes per replicate (10 replicates): as in table and graph
-        - Difference_normalized_signals_22genes_wRand10reps_wSDbar.pdf: Figure 5(D)
-
