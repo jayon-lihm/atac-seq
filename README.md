@@ -59,9 +59,9 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
     Generates Figure 2(C); Stacked histogram of number of TSS-accessible genes. Color represents each study.  
     Input files:
       - SRA_sample_info.color_20170913.txt: sample information and color codes
-      - Num_TSS_accessible_genes.txt: the number of TSS-accessible genes  
+      - Num_TSS_accessible_genes_BrNa.txt: the number of TSS-accessible genes with broad and narrow peaks  
       
-    Output file: Number_of_Genes_Distribution_histogram.pdf  
+    Output file: Number_of_Genes_Distribution_histogram_BrNa.pdf  
     
   6. **downsampling.sh**  
     Downsampling reads to 10%, 20%, ..., 90%, generating ten replicates are generated at each sampling fraciton.  
