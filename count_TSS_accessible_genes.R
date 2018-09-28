@@ -1,6 +1,9 @@
 ## 2018.02.15
 ## Count TSS-accessible genes
 ## Generate summary tables
+
+## 2018.09.28
+## Edited to count both Broad and Narrow peaks
 sampleFile <- "./SRA_sample_info.color_20170913.txt"
 sampleTab <- read.table(sampleFile, header=T, as.is=T, sep="\t")
 
