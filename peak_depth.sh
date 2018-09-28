@@ -1,4 +1,5 @@
 ## 2018.02.08
+## 2018.09.28 - edited "peak_file" name 
 ## Figure 2(b)
 bamfile="/path/X.bam"
 peak_file="/path/sampleID.Peak"
