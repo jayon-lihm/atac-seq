@@ -89,30 +89,30 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
       \[Software Requirements\]
         - Bedtools
         
-   8. **Summary_Gene_withPeaks_frac1090.R**  
-      Used for Figure 3(B&C). Generate table per sample with TSS/Gene info + original + f10_r1 + ... + f10_r10 + f90_r1 + f90_r10.  
+   8. **novel_and_lost_peaks_genes_f90.R**  
+      Used for Figure 3(B&C). Generate table per sample with TSS/Gene info + original + f90_r1 + f90_r10.  
       1 if the TSS or gene has overlapping peaks, 0 otherwise.  
-      It takes the index number of sample in the sample info table and temporary output directory ("tmpdir") as arguments.  
-      ```
-      Rscript ./Summary_Gene_withPeaks_frac1090.R 10 "./"
-      ```
-      NOTE: Again, the location of peak files for 10% sampling and 90% sampling needs to be specificed within scripts.  
+      NOTE: Again, the location of peak files from original reads and 90% sampling needs to be specificed within scripts. (multiple times)  
       
       Input files:  
-        - ./Merged_mm9_refSeq_TSS_1kb.txt
-        - ./mm9_genename.txt: unique list of gene names and its chromosomal locations
-        - ./TSS_numSamples.txt.gz: Table with the list of TSS and all 193 samples for whether a sample has peaks or not. Generated from #3.
+        - SRA_sample_info.color_20170913.txt
+        - Merged_mm9_refSeq_TSS_1kb.txt
+        - mm9_genename.txt: unique list of gene names and its chromosomal locations
+        - Num_TSS_accessible_genes_BrNa.txt, TSS_AllSamples_Br.txt.gz, TSS_AllSamples_Na.txt.gz, 
         
       Output files:
-        - outfile_tss <- paste("./", sample_alias, ".TSS_calls_frac1090.byTSS.txt", sep="")
-        - outfile_gene <- paste("./", sample_alias, ".TSS_calls_frac1090.byGene.txt", sep="")
+        - INTERMEDIATE FILES
+        - Br_outfile_tss <- paste("./", sample_alias, ".TSS_overlaps_Broad.byTSS.txt", sep="")
+        - Br_outfile_gene <- paste("./", sample_alias, ".TSS_overlaps_Broad.byGene.txt", sep="")
+        - Na_outfile_tss <- paste("./", sample_alias, ".TSS_overlaps_Narrow.byTSS.txt", sep="")
+        - Na_outfile_gene <- paste("./", sample_alias, ".TSS_overlaps_Narrow.byGene.txt", sep="")
+        - Novel_lost_genes_f90_AllReps.txt: count of novel and lost genes from 90% sampled reads, all 10 reps
+        - ...
+        - SUMMARY OUTPUTS
+        - Average_novel_lost_genes_f90.txt: averaged over 10 replicates
+        - histogram_frac_lost_peaks_genes_f90.pdf: plot of novel and lost genes at 90% sampling
         
-   9. **Novel_Lost_Genes_Counts_frac90.R**  
-      Used for Figure 3(B&C). Generate the counts of novel and lost genes at 90% sampling for all 193 samples and all 10 replicates.   
-      Input file: output from #8. "./sample_alias.TSS_calls_frac1090.byGene.txt"  
-      Output file: ./Number_novel_lost_genes_90pct.txt  
-
-   10. **Gene_Frequency_Distribution.R**  
+   9. **Gene_Frequency_Distribution.R**  
       Used for Figure 4(A). Generate a reverse cumulative distribution P(X>=x) graph.  
       NOTE: Peak file needs to be specified within the script.  
       Input files:  
@@ -123,7 +123,7 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
         - RevCumulative_Histogram_gene_TSS_peaks.pdf: Reverse cumulative distribution graph
         - peaks_overlap_with_Genes_perGeneSummary.txt: List of genes with frequency of samples at TSS, TSS1kb, Gene1kb
         - CommonGenes_451.txt: List of commonly accessible genes (TSS+/- 1kb regions)
-   11. **common_genes_analysis.R**  
+   10. **common_genes_analysis.R**  
       Used for Figure 4(B). Generates a png graph plotting the rank of mean expression vs. the ranked SD, a list of 451 commonly accessible genes, and the results of GO enrichment analysis based on MannWhitney test.  
       GO enrichment analysis: In this script, we perform Mann Whitney test for broader trend and Hypergeometric test for enrichment.  
       Input files:
@@ -138,13 +138,13 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
         - All_and_CommonGenes_mean_expression_vs_sd.png
         - MannWhitney_rankTest_CommonGenes_GO_enrichment.txt
    
-   12. **non_overlapping_10pct_sampling.sh**  
+   11. **non_overlapping_10pct_sampling.sh**  
       Used for our mouse amygdala and cortex samples processing. This script will generate non-overlapping 10 splits of the input bam files, followed by MACS2 peak calling. The paths to bamfile, sampleID, tmp dir, and output dir need to be specified within the script. After the peak calling, the bam files for the sampled reads will be removed to save space.  
       \[Software Requirements\]  
         - MACS2
         - Samtools
 
-   13. **MouseBrain_DiffAcc_ttest.R**  
+   12. **MouseBrain_DiffAcc_ttest.R**  
       Perform Student t-tests for selected genes that are called robustly at least in one sample. Compare fear-conditioning vs control, ErbB4 knock-out vs wildtype, and amygdala vs cortex.  
       Output Figures include Figure 5C, 5D, and Figure S7.  
       
