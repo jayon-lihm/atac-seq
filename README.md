@@ -67,6 +67,7 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
     Downsampling reads to 10%, 20%, ..., 90%, generating ten replicates are generated at each sampling fraciton.  
     Peaks are called right after the sampling and the sampled bam files are removed.  
     Output: ${sample_alias}.f${frac}_r${i}.DefaultBroad.macs2 & ${sample_alias}.f${frac}_r${i}.DefaultNarrow.macs2 where sample_alias is sample ID, frac is sampling fraction, i is a replicate number.  
+    
     \[Software Requirements\]
       - MACS2
       - Samtools  
