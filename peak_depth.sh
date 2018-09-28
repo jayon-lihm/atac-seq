@@ -1,7 +1,7 @@
 ## 2018.02.08
 ## Figure 2(b)
 bamfile="/path/X.bam"
-peak_file="/path/sampleID.broadPeak"
+peak_file="/path/sampleID.Peak"
 
 ## 1. Get depth for a given bam file
 samtools depth ${bamfile} | gzip -c > ${bamfile}.depth.txt.gz
