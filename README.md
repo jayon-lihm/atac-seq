@@ -45,9 +45,9 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
     - Python
  4. **count_TSS_accessible_genes.R**  
   Used for Figure 2(C). Generate three tables:  
-    1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions) - output: Num_TSS_accessible_genes.txt,  
-    2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0 - output: TSS_numSamples.txt,  
-    3) Binary table for each gene, row: gene, column: samples - output: Gene_numSamples.txt   
+    1) Numbe of accessible TSS, Number of TSS-accessible genes (genes with peaks within TSS regions) - output: Num_TSS_accessible_genes_BrNa.txt,  
+    2) Binary table for each TSS region, row: TSS, column: samples, 1 if the TSS is accessible, otherwise 0 - output: TSS_AllSamples_Br.txt, TSS_AllSamples_Na.txt,  
+    3) Binary table for each gene, row: gene, column: samples - output: Gene_AllSamples_Br.txt, Gene_AllSamples_Na.txt     
   
     \[Software Requirements\]  
       - Bedtools
