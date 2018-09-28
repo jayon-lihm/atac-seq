@@ -120,9 +120,9 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
         - Merged_mm9_refSeq_TSS.txt, Merged_mm9_refSeq_TSS_1kb.txt, Merged_mm9_refSeq_Gene_1kb.txt, mm9_genename.txt  
         
       Output files:  
-        - RevCumulative_Histogram_gene_TSS_peaks.pdf: Reverse cumulative distribution graph
-        - peaks_overlap_with_Genes_perGeneSummary.txt: List of genes with frequency of samples at TSS, TSS1kb, Gene1kb
-        - CommonGenes_451.txt: List of commonly accessible genes (TSS+/- 1kb regions)
+        - RevCumulative_Histogram_gene_TSS_narrow_peaks.pdf: Reverse cumulative distribution graph (with narrow peaks here)
+        - Default_Narrow_peaks_overlap_with_Genes_perGeneSummary.txt: List of genes with frequency of samples at TSS, TSS1kb, Gene1kb
+        
    10. **common_genes_analysis.R**  
       Used for Figure 4(B). Generates a png graph plotting the rank of mean expression vs. the ranked SD, a list of 451 commonly accessible genes, and the results of GO enrichment analysis based on MannWhitney test.  
       GO enrichment analysis: In this script, we perform Mann Whitney test for broader trend and Hypergeometric test for enrichment.  
