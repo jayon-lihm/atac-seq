@@ -14,7 +14,7 @@ For questions, please contact Jayon Lihm (jlihm@cshl.edu) or Jesse Gillis (JGill
 
 ===============================================================================
 
-All of the input and output files (tables, graphs, texts) are located under "files" folder. 
+Input and output files (tables, graphs, texts) are located under "files" folder. 
 List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studies_in_meta_analysis.txt".  
 
 1. **pipeline_paired.sh & pipeline_single.sh**  
