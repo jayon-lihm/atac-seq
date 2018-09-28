@@ -27,12 +27,21 @@ for spr in {1..10} ## 10 seperate files
 do
     cat ${tmpdir}original_header.txt ${tmpdir}${sampleID}.random.${spr} | samtools view -S - -bh >  ${tmpdir}${sampleID}.random.${spr}.bam
     rm ${tmpdir}${sampleID}.random.${spr} ## Remove samfile
+
     numRead=$(samtools view ${tmpdir}${sampleID}.random.${spr}.bam | wc -l)
     echo "${sampleID}.random.${spr}.bam :: $numRead"
-    macs2 callpeak --nomodel --broad --keep-dup all -g mm -f BAM -t ${tmpdir}${sampleID}.random.${spr}.bam -n ${sampleID}.random_${spr}.broad.macs2 --outdir ${out_dir}
+    bam="${tmpdir}${sampleID}.random.${spr}.bam"
+    echo "default, broad, $(date +"%D"), $(date +"%T")"
+    macs2 callpeak --nomodel --broad --keep-dup all -g mm -f BAM -t ${bam} -n ${sampleID}.random_${spr}.broad.macs2 --outdir ${out_dir}
+    echo "default, narrow, $(date +"%D"), $(date +"%T")"
+    macs2 callpeak --nomodel --keep-dup all -g mm -f BAM -t ${bam} -n ${sampleID}.random_${spr}.narrow.macs2 --outdir ${out_dir}
+
     rm ${tmpdir}${sampleID}.random.${spr}.bam
     gzip ${out_dir}${sampleID}.random_${spr}.broad.macs2_peaks.broadPeak
     gzip ${out_dir}${sampleID}.random_${spr}.broad.macs2_peaks.gappedPeak
+    gzip ${out_dir}${sampleID}.random_${spr}.narrow.macs2_peaks.narrowPeak
+    gzip ${out_dir}${sampleID}.random_${spr}.narrow.macs2_summits.bed
+
     echo "...random split file ${spr} done:: $(date +"%D"), $(date +"%T")"
 done
 
