@@ -78,11 +78,13 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
       Used for Figure 3(A). Calculate % of novel and lost peaks. Novel peak is a newly appeared peak after sampling and lost peak is a disappeared peak after sampling. Peaks from the original bam file before sampling are called "original peaks". This script runs for each fraction for parallelization.       
       Percentage of novel peaks: (# novel peaks) / (Total # peaks after sampling)  
       Percentage of lost peaks: (# lost peaks) / (Total # peaks before sampling)  
-      Output: Sampling_f\<frac\>\_withRep_NumPeaks_AllReps.txt - a table with sample ID, study name, sampling fraction, replicate number, original number of peaks, number of peaks at this sampling, number of novel peaks, number of lost peaks.  
+      Output  
+      - NumPeaks_NovelLost_AllReps.txt - A table with sample ID, study name, sampling fraction, replicate number, original number of peaks, number of peaks at this sampling, number of novel peaks, number of lost peaks.  
+      - pctNovelpeaks_vs_sampling.BrNa.pdf - A summary plot of % of novel peaks per study
       NOTE: Paths for original peak file and sample peak file need to be specified within the script.  
       
       ```
-      Rscript ./Novel_Lost_Peak_Counts.R 30
+      Rscript ./Novel_Lost_Peak_Counts.R
       ```
       \[Software Requirements\]
         - Bedtools
