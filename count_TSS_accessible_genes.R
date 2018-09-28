@@ -13,17 +13,25 @@ o_res <- sampleTab[,1:2]
 for (i in 1:dim(sampleTab)[1]){
   paper <- sampleTab$paper[i]
   sample_alias <- sampleTab$sample_alias[i]
-  ########## PEAK FILE NAME needs to be set ##############
-  peakFile <- paste("./", sample_alias, ".merged_genome.macs2_peaks.broadPeak", sep="")
-  ########################################################
-  cmd <- paste("cat ", geneFile, " | sed '1d' | bedtools intersect -a stdin -b ", peakFile, " -wa -u", sep="")
+  ########## PEAK FILE NAME needs to be set ######################################                                                                                                
+  peakFile1 <- paste("./", sample_alias, ".original_default.broadPeak", sep="")
+  peakFile2 <- paste("./", sample_alias, ".original_default.narrowPeak", sep="")
+  ################################################################################                                                                                                
+
+  cmd <- paste("cat ", geneFile, " | sed '1d' | bedtools intersect -a stdin -b ", peakFile1, " -wa -u", sep="")
   a <- read.table(pipe(cmd), header=F, as.is=T, sep="\t")
   colnames(a) <- colnames(geneTab)
-  o_res$Gene_TSS_covered[i] <- length(unique(a$name2)) ## Number of Genes
-  o_res$TSS_covered[i] <- dim(a)[1] ## Number of TSS
+  o_res$Broad_GeneTSS_covered[i] <- length(unique(a$name2)) ## number of "genes"                                                                                                  
+  o_res$Broad_TSS_covered[i] <- dim(a)[1] ## number of "TSS regions"                                                                                                              
+
+  cmd <- paste("cat ", geneFile, " | sed '1d' | bedtools intersect -a stdin -b ", peakFile2, " -wa -u", sep="")
+  a <- read.table(pipe(cmd), header=F, as.is=T, sep="\t")
+  colnames(a) <- colnames(geneTab)
+  o_res$Narrow_GeneTSS_covered[i] <- length(unique(a$name2))
+  o_res$Narrow_TSS_covered[i] <- dim(a)[1]
 }
 
-write.table(o_res, "./Num_TSS_accessible_genes.txt", col.names=T, row.names=F, quote=F, sep="\t")
+write.table(o_res, "./Num_TSS_accessible_genes_BrNa.txt", col.names=T, row.names=F, quote=F, sep="\t")
 
 ## Output: gene table + sample1 + ... + sample193 + Total number of samples with peaks
 ## 1 if that TSS is hit
