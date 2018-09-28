@@ -104,7 +104,5 @@ tmp_br$num_samples <- apply(as.matrix(tmp_br[,namevector]), 1, "sum")
 tmp_na$num_samples <- apply(as.matrix(tmp_na[,namevector]), 1, "sum")
 
 write.table(tmp_br, "./Gene_AllSamples_Br.txt", col.names=T, row.names=F, quote=F, sep="\t")
-write.table(tmp_na, "./Gene_AllSamples_Na.txt"", col.names=T, row.names=F, quote=F, sep="\t")    
-
-
-                                                                                                                                                                                  
+write.table(tmp_na, "./Gene_AllSamples_Na.txt", col.names=T, row.names=F, quote=F, sep="\t")    
+## output files are gzipped on GITHUB
