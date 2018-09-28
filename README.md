@@ -124,19 +124,15 @@ List and pubmed link of 12 studies in our meta analysis is in "List_of_12_studie
         - Default_Narrow_peaks_overlap_with_Genes_perGeneSummary.txt: List of genes with frequency of samples at TSS, TSS1kb, Gene1kb
         
    10. **common_genes_analysis.R**  
-      Used for Figure 4(B). Generates a png graph plotting the rank of mean expression vs. the ranked SD, a list of 451 commonly accessible genes, and the results of GO enrichment analysis based on MannWhitney test.  
-      GO enrichment analysis: In this script, we perform Mann Whitney test for broader trend and Hypergeometric test for enrichment.  
+      Used for Figure 4(B). Generates a png graph plotting the rank of mean expression vs. the ranked SD, a list of 164 commonly accessible genes. 
       Input files:
         - SRA_sample_info.color_20170913.txt
         - Merged_mm9_refSeq_TSS_1kb.txt
-        - Gene_numSamples.txt.gz
         - mouse.ranked_mean_sd_expression.txt.gz: Mouse expression data
-        - EGAD sources (https://www.bioconductor.org/packages/release/bioc/html/EGAD.html): EGADlite.RData, biogrid.RData, GO.mouse.RData, GO.voc.RData, gene_set_enrichment.r  
+        - CommonAccessibleGenes_164_narrow.txt: List of 164 common genes
        
-      Output files:
-        - CommonAccessibleGenes_451_RankedGeneExpression.txt
+      Output file:
         - All_and_CommonGenes_mean_expression_vs_sd.png
-        - MannWhitney_rankTest_CommonGenes_GO_enrichment.txt
    
    11. **non_overlapping_10pct_sampling.sh**  
       Used for our mouse amygdala and cortex samples processing. This script will generate non-overlapping 10 splits of the input bam files, followed by MACS2 peak calling. The paths to bamfile, sampleID, tmp dir, and output dir need to be specified within the script. After the peak calling, the bam files for the sampled reads will be removed to save space.  
