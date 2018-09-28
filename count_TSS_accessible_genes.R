@@ -35,26 +35,47 @@ write.table(o_res, "./Num_TSS_accessible_genes_BrNa.txt", col.names=T, row.names
 
 ## Output: gene table + sample1 + ... + sample193 + Total number of samples with peaks
 ## 1 if that TSS is hit
-geneRes <- geneTab[,1:4]
+geneRes_br <- geneTab[,1:4]
+geneRes_na <- geneTab[,1:4]
+
 namevector <- sampleTab$sample_alias
-geneRes[,namevector] <- 0
-gene_ID <- paste(geneRes$chrom, geneRes$merged_promoter.start, geneRes$merged_promoter.end, geneRes$name2, sep="_")
+geneRes_br[,namevector] <- 0
+geneRes_na[,namevector] <- 0
+gene_ID <- paste(geneRes_br$chrom, geneRes_br$merged_promoter.start, geneRes_br$merged_promoter.end, geneRes_br$name2, sep="_")
 
 for (i in 1:dim(sampleTab)[1]){
+  cat(i, ",")
   paper <- sampleTab$paper[i]
   sample_alias <- sampleTab$sample_alias[i]
-  ########## PEAK FILE NAME needs to be set ##############
-  peakFile <- paste("./", sample_alias, ".merged_genome.macs2_peaks.broadPeak", sep="")
-  ########################################################
+
+  ########## PEAK FILE NAME needs to be set ######################################                                                                                                
+  peakFile1 <- paste("./", sample_alias, ".original_default.broadPeak", sep="")
+  peakFile2 <- paste("./", sample_alias, ".original_default.narrowPeak", sep="")
+  ################################################################################                                                                                                
+
+  peakFile <- peakFile1
   cmd <- paste("cat ", geneFile, " | sed '1d' | bedtools intersect -a stdin -b ", peakFile, " -wa -u", sep="")
   a <- read.table(pipe(cmd), header=F, as.is=T, sep="\t")
   colnames(a) <- colnames(geneTab)
   a_ID <- paste(a$chrom, a$merged_promoter.start, a$merged_promoter.end, a$name2, sep="_")
-  geneRes[which(gene_ID %in% a_ID), sample_alias] <- 1
-}
+  geneRes_br[which(gene_ID %in% a_ID), sample_alias] <- 1
 
-geneRes$num_samples <- apply(as.matrix(geneRes[,5:dim(geneRes)[2]]), 1, "sum")
-write.table(geneRes, "./TSS_numSamples.txt", col.names=T, row.names=F, quote=F, sep="\t")
+  peakFile <- peakFile2
+  cmd <- paste("cat ", geneFile, " | sed '1d' | bedtools intersect -a stdin -b ", peakFile, " -wa -u", sep="")
+  a <- read.table(pipe(cmd), header=F, as.is=T, sep="\t")
+  colnames(a) <- colnames(geneTab)
+  a_ID <- paste(a$chrom, a$merged_promoter.start, a$merged_promoter.end, a$name2, sep="_")
+  geneRes_na[which(gene_ID %in% a_ID), sample_alias] <- 1
+
+}
+cat("\n")
+
+geneRes_br$num_samples <- apply(as.matrix(geneRes_br[, sampleTab$sample_alias]), 1, "sum")
+geneRes_na$num_samples <- apply(as.matrix(geneRes_na[, sampleTab$sample_alias]), 1, "sum")
+
+write.table(geneRes_br, "./TSS_AllSamples_Br.txt", col.names=T, row.names=F, quote=F, sep="\t")
+write.table(geneRes_na, "./TSS_AllSAmples_Na.txt", col.names=T, row.names=F, quote=F, sep="\t")
+### uploaded files on GITHUB are gzipped                                                                                                                                          
 
 ## Aggreagate at gene level
 ## Output: gene name + chromosome + sample 1 + ... + sample 193
