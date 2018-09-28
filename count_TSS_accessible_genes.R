@@ -80,15 +80,28 @@ write.table(geneRes_na, "./TSS_AllSAmples_Na.txt", col.names=T, row.names=F, quo
 ## Aggreagate at gene level
 ## Output: gene name + chromosome + sample 1 + ... + sample 193
 ## 1 if any of TSS in a gene is hit by peaks
-tmp <- data.frame(name2=unique(geneTab$name2), stringsAsFactors=FALSE)
-tmp$chrom <- sapply(tmp$name2, function(x){ return( paste(unique(geneTab$chrom[which(geneTab$name2==x)]), collapse=",") ) })
-tmp[,namevector] <- 0
+tmp_br <- data.frame(name2=unique(geneTab$name2), stringsAsFactors=FALSE)
+tmp_na <- data.frame(name2=unique(geneTab$name2), stringsAsFactors=FALSE)
+tmp_br$chrom <- sapply(tmp_br$name2, function(x){ return( paste(unique(geneTab$chrom[which(geneTab$name2==x)]), collapse=",") ) })
+tmp_na$chrom <- sapply(tmp_na$name2, function(x){ return( paste(unique(geneTab$chrom[which(geneTab$name2==x)]), collapse=",") ) })
+tmp_br[,namevector] <- 0
+tmp_na[,namevector] <- 0
 
 for (i in namevector){
   sampleName <- i
   cat(i, "\n")
-  tmp[,sampleName] <- sapply(tmp$name2, function(x){ a <- sum(geneRes[which(geneRes$name2==x), sampleName]); if (a>0){ return(1) } else if (a==0){ return(0) } })
+  tmp_gene_name <- unique(geneRes_br$name2[which(geneRes_br[,sampleName]==1)])
+  tmp_br[which(tmp_br$name2 %in% tmp_gene_name), sampleName] <- 1
+
+  tmp_gene_name <- unique(geneRes_na$name2[which(geneRes_na[,sampleName]==1)])
+  tmp_na[which(tmp_na$name2 %in% tmp_gene_name), sampleName] <- 1
 }
 
-write.table(tmp, "./Gene_numSamples.txt", col.names=T, row.names=F, quote=F, sep="\t")
+tmp_br$num_samples <- apply(as.matrix(tmp_br[,namevector]), 1, "sum")
+tmp_na$num_samples <- apply(as.matrix(tmp_na[,namevector]), 1, "sum")
 
+write.table(tmp_br, "./Gene_AllSamples_Br.txt", col.names=T, row.names=F, quote=F, sep="\t")
+write.table(tmp_na, "./Gene_AllSamples_Na.txt"", col.names=T, row.names=F, quote=F, sep="\t")    
+
+
+                                                                                                                                                                                  
