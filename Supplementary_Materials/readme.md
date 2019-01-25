@@ -1,6 +1,6 @@
-Supplementary Text: Detailed methods and experimental designs
+**Supplementary Text**: Detailed methods and experimental designs
 
-Supplementary Figures  
+**Supplementary Figures**  
 S1 Figure: Number of peaks vs. number of filtered reads. MACS2 peaks are generated under (A,B) default parameter setting with broad and narrow mode, (C,D) ENCODE parameters with p-value cutoff only,  (E,F) ENCODE parameters with the default q-value restrictions (0.1 for broad, 0.05 for narrow), and (H,I) BAMPE parameters. 
 
 S2 Figure: Number of TSS-accessible genes vs. number of filtered reads. Each color represents each study. Left panel is generated from broad peaks and right panel is from narrow peaks.
@@ -15,7 +15,7 @@ S6 Figure: Number of TSS-accessible genes called after applying 10% downsampling
 
 S7 Figure: Normalized signals vs. p-value of amygdala and cortex
 
-Supplementary Tables
+**Supplementary Tables**  
 S1 Table: Summary of 12 studies
 
 S2 Table: MACS2 parameter settings in 12 studies
