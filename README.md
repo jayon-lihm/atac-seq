@@ -1,16 +1,16 @@
-# atac-seq
-Analysis scripts for paper "How low can you go? Calling robust ATAC-seq peaks through read down-sampling"
+# ATAC-seq data analysis
+Analysis scripts for paper "Robustness and replicability in profiling chromatin accessibility regions"
 
-Authors:  Jayon Lihm1, Sandra Ahrens1, Sara Ballouz1, Hayan Lee2,3, Megan Crow1, Jessica Tollkuhn1, Shane McCarthy1, Bo Li1, W.R. McCombie1, Jesse Gillis1*
+Authors:  Jayon Lihm<sup>1</sup>, Sandra Ahrens<sup>1</sup>, Sara Ballouz<sup>1</sup>, Hayan Lee<sup>2,3</sup>, Megan Crow<sup>1</sup>, Jessica Tollkuhn<sup>1</sup>, Shane McCarthy<sup>1</sup>, Bo Li<sup>1</sup>, W.R. McCombie<sup>1</sup>, Jesse Gillis<sup>1*</sup>
 
 
 Affiliations:  
 1 The Stanley Institute for Cognitive Genomics, Cold Spring Harbor Laboratory, Cold Spring Harbor, NY, 11724, USA  
 2 Department of Energy Joint Genome Institute, Walnut Creek, CA 94598, USA  
 3 Department of Genetics, Stanford University School of Medicine, Stanford University, Stanford, CA 94304, USA  
+\* Corresponding author: Jesse Gillis
 
-
-For questions, please contact Jayon Lihm (jlihm@cshl.edu) or Jesse Gillis (JGillis@cshl.edu).  
+For questions, please contact Jayon Lihm (LihmJ@mskcc.org) or Jesse Gillis (JGillis@cshl.edu).  
 
 ===============================================================================
 
